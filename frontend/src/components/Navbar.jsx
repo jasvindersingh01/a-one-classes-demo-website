@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Logo from "../assets/Logo.jpg";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -16,46 +18,56 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Courses", path: "/courses" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all 
-        ${scrolled ? "bg-[#0A3D91] shadow-md" : "bg-[#0A3D91]"}
+        ${scrolled ? "bg-[#08377F]/95 shadow-lg backdrop-blur-md" : "bg-[#072F70]"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
 
         <div className="flex items-center gap-3">
           <img
             src={Logo}
             alt="A-One Classes"
-            className="w-18 h-18 object-contain rounded-sm"
+            className="w-22 object-contain rounded-sm"
           />
-          <div>
-            <h1 className="text-xl font-bold text-white leading-snug">
-              A-One Classes
-            </h1>
-          </div>
+          <h1 className="text-xl font-bold text-white tracking-wide">
+            A-One Classes
+          </h1>
         </div>
 
         <nav className="hidden md:flex gap-8 items-center text-white font-medium">
-          {["Home", "Courses", "Gallery", "About Us", "Contact Us"].map((item, index) => (
-            <a
+          {links.map((item, index) => (
+            <Link
               key={index}
-              href={`#${item.toLowerCase().replace(" ", "")}`}
-              className="hover:text-yellow-300 transition-all duration-200"
+              to={item.path}
+              className={`transition-all duration-200 ${
+                location.pathname === item.path
+                  ? "text-yellow-300 font-semibold"
+                  : "hover:text-yellow-300"
+              }`}
             >
-              {item}
-            </a>
+              {item.name}
+            </Link>
           ))}
 
-          <a href="#contact">
+          <Link to="/contact">
             <button className="px-4 py-2 bg-yellow-400 text-blue-900 rounded-md font-semibold hover:bg-yellow-300 transition">
               Enroll Now
             </button>
-          </a>
+          </Link>
         </nav>
 
         <button onClick={() => setOpen(!open)} className="text-white text-3xl md:hidden">
@@ -64,24 +76,28 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#0A3D91] text-white">
+        <div className="md:hidden bg-[#0A3D91] text-white shadow-lg">
           <nav className="flex flex-col gap-4 px-6 py-4">
-            {["Home", "Courses", "Gallery", "About Us", "Contact Us"].map((item, index) => (
-              <a
+            {links.map((item, index) => (
+              <Link
                 key={index}
-                href={`#${item.toLowerCase().replace(" ", "")}`}
+                to={item.path}
                 onClick={() => setOpen(false)}
-                className="hover:text-yellow-300 transition"
+                className={`text-lg transition ${
+                  location.pathname === item.path
+                    ? "text-yellow-300 font-semibold"
+                    : "hover:text-yellow-300"
+                }`}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
 
-            <a href="#contact">
-              <button className="mt-3 px-4 py-2 bg-yellow-400 text-blue-900 rounded-md">
+            <Link to="/contact" onClick={() => setOpen(false)}>
+              <button className="mt-3 px-4 py-2 bg-yellow-400 text-blue-900 rounded-md w-full font-bold">
                 Enroll Now
               </button>
-            </a>
+            </Link>
           </nav>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import HeroImg from "../assets/HeroImg.avif";
+import HeroImg from "../assets/heroimg.jpeg";
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
         style={{ backgroundImage: `url(${HeroImg})` }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/10"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
