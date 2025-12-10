@@ -1,48 +1,63 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import DirectorImg from "../assets/about/aboutpre.png";
 
-export default function About() {
+export default function AboutPreview() {
   return (
-    <section id="about" className="py-16 bg-gray-100 px-6 md:px-20 scroll-mt-20">
-
+    <section className="py-20 bg-gray-50 px-6 md:px-20">
+      
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto text-center"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-14"
       >
-        <h2 className="text-4xl font-bold text-blue-700 mb-6">About Us</h2>
-
-        <p className="text-lg text-gray-700 leading-relaxed">
-          A-One Classes, Kota is a trusted coaching institute offering quality
-          education for Class 8th–12th (CBSE/RBSE), JEE, NEET, CUET & JET.
-          Our experienced faculty ensures strong concepts and result-oriented study.
+        <h2 className="text-4xl font-bold text-blue-800">About Us</h2>
+        <p className="text-gray-600 mt-2">
+          A quick look at A-One Classes Kota
         </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-      >
-        <div className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition text-center">
-          <h3 className="text-2xl font-bold text-blue-700">14+ Years</h3>
-          <p className="text-gray-600 mt-1">Of Excellence</p>
-        </div>
+      <div className="flex flex-col md:flex-row items-center gap-10">
 
-        <div className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition text-center">
-          <h3 className="text-2xl font-bold text-blue-700">Expert Faculty</h3>
-          <p className="text-gray-600 mt-1">Focused Teaching Approach</p>
-        </div>
+        <motion.img
+          src={DirectorImg}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full md:w-1/2 rounded-2xl shadow-xl object-cover h-72 md:h-96"
+          alt="About Preview"
+        />
+       
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="md:w-1/2"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-4">
+            A Trusted Coaching Institute Since 2010
+          </h3>
 
-        <div className="p-6 bg-white rounded-xl shadow hover:shadow-xl transition text-center">
-          <h3 className="text-2xl font-bold text-blue-700">Hostel Facility</h3>
-          <p className="text-gray-600 mt-1">For Outstation Students</p>
-        </div>
-      </motion.div>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            A-One Classes Kota has been helping students achieve success with 
+            strong academic guidance, personal care, disciplined study structure, 
+            and Kota-style teaching methodology.
+          </p>
 
+          <p className="text-gray-700 leading-relaxed mb-6">
+            Our mission is to build confident, knowledgeable, and disciplined students 
+            who excel in Board Exams as well as Competitive Exams like JEE, NEET, CUET & JET.
+          </p>
+
+          <Link to="/about">
+            <button className="px-6 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-600 transition">
+              Read More →
+            </button>
+          </Link>
+        </motion.div>
+
+      </div>
     </section>
   );
 }

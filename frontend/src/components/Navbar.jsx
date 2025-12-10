@@ -20,9 +20,9 @@ export default function Navbar() {
 
   const links = [
     { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
     { name: "Courses", path: "/courses" },
     { name: "Gallery", path: "/gallery" },
-    { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -62,12 +62,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-
-          <Link to="/contact">
-            <button className="px-4 py-2 bg-yellow-400 text-blue-900 rounded-md font-semibold hover:bg-yellow-300 transition">
-              Enroll Now
-            </button>
-          </Link>
         </nav>
 
         <button onClick={() => setOpen(!open)} className="text-white text-3xl md:hidden">
