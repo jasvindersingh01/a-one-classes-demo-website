@@ -3,6 +3,7 @@ import CoursesPreview from "../components/CoursesPreview";
 import GalleryPreview from "../components/GalleryPreview";
 import AboutPreview from "../components/AboutPreview";
 import Achievements from "../components/Achivements";
+import Testimonials from "../components/Testimonials";
 
 export default function Home() {
   return (
@@ -10,8 +11,9 @@ export default function Home() {
       <Hero />
       <AboutPreview />
       <CoursesPreview />
-      <GalleryPreview />
       <Achievements />
+      <Testimonials />
+      <GalleryPreview />
     </>
   );
 }

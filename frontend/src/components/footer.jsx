@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import Logo from "../assets/Logo.jpg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -13,7 +14,6 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-        {/* LOGO + ABOUT */}
         <div>
           <img
             src={Logo}
@@ -26,44 +26,74 @@ export default function Footer() {
             CUET & JET. Delivering excellence with expert faculty since 2010.
           </p>
 
-          {/* Social Icons */}
           <div className="flex gap-4 mt-4 text-xl">
-            <a href="#" className="hover:text-yellow-400 transition">
+            <a href="https://www.facebook.com/share/1MLH1P9pmk/" className="hover:text-yellow-400 transition">
               <FaFacebook />
             </a>
-            <a href="#" className="hover:text-yellow-400 transition">
+            <a href="https://www.instagram.com/aone.classes?utm_source=qr&igsh=MW1jYXNlYjJla2VmbA==" className="hover:text-yellow-400 transition">
               <FaInstagram />
             </a>
-            <a href="#" className="hover:text-yellow-400 transition">
+            <a href="https://www.youtube.com/@a-oneclasseskota" className="hover:text-yellow-400 transition">
               <FaYoutube />
             </a>
           </div>
         </div>
 
-        {/* QUICK LINKS */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-gray-300">
-            <li className="hover:text-yellow-400 cursor-pointer transition">Home</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">About Us</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">Gallery</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">Contact</li>
+            <li>
+              <Link to="/" className="hover:text-yellow-400 transition">Home</Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-yellow-400 transition">About Us</Link>
+            </li>
+            <li>
+              <Link to="/gallery" className="hover:text-yellow-400 transition">Gallery</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-yellow-400 transition">Contact</Link>
+            </li>
           </ul>
         </div>
 
-        {/* COURSES */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Courses</h3>
           <ul className="space-y-2 text-gray-300">
-            <li className="hover:text-yellow-400 cursor-pointer transition">Class 8th–12th</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">JEE (Mains)</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">NEET</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">CUET</li>
-            <li className="hover:text-yellow-400 cursor-pointer transition">JET / B.Sc Entrance</li>
+
+            <li>
+              <Link to="/courses" className="hover:text-yellow-400 transition">
+                Class 8th–12th
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/courses" className="hover:text-yellow-400 transition">
+                JEE (Mains)
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/courses" className="hover:text-yellow-400 transition">
+                NEET
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/courses" className="hover:text-yellow-400 transition">
+                CUET
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/courses" className="hover:text-yellow-400 transition">
+                JET / B.Sc Entrance
+              </Link>
+            </li>
+
           </ul>
         </div>
 
-        {/* CONTACT */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
 
@@ -89,7 +119,6 @@ export default function Footer() {
 
       </div>
 
-      {/* COPYRIGHT */}
       <div className="text-center text-gray-300 text-sm mt-10 border-t border-white/20 pt-4">
         © {new Date().getFullYear()} A-One Classes Kota. All Rights Reserved.
       </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import HeroImg from "../assets/heroimg.jpeg";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -28,14 +29,18 @@ export default function Hero() {
           Kota’s trusted coaching institute for strong academic foundation and smart learning.
         </p>
 
-        <motion.a
-          href="#contact"
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block mt-8 px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md shadow-lg transition"
         >
-          Contact Us
-        </motion.a>
+          <Link
+            to="/contact"
+            className="inline-block mt-8 px-8 py-3 bg-blue-800 hover:bg-blue-900 text-white font-semibold rounded-md shadow-lg transition"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+
       </motion.div>
     </section>
   );

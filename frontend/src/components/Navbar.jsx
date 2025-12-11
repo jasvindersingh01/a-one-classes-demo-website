@@ -7,13 +7,23 @@ import { Link, useLocation } from "react-router-dom";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hideTopbar, setHideTopbar] = useState(false);
+const location = useLocation();
 
-  const location = useLocation();
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) setHideTopbar(true);
+      else setHideTopbar(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+    useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -32,10 +42,11 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all 
+         ${hideTopbar ? "top-0" : "top-[35px]"}
         ${scrolled ? "bg-[#08377F]/95 shadow-lg backdrop-blur-md" : "bg-[#072F70]"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-6">
 
         <div className="flex items-center gap-3">
           <img
@@ -53,11 +64,10 @@ export default function Navbar() {
             <Link
               key={index}
               to={item.path}
-              className={`transition-all duration-200 ${
-                location.pathname === item.path
-                  ? "text-yellow-300 font-semibold"
-                  : "hover:text-yellow-300"
-              }`}
+              className={`transition-all duration-200 ${location.pathname === item.path
+                ? "text-yellow-300 font-semibold"
+                : "hover:text-yellow-300"
+                }`}
             >
               {item.name}
             </Link>
@@ -77,11 +87,10 @@ export default function Navbar() {
                 key={index}
                 to={item.path}
                 onClick={() => setOpen(false)}
-                className={`text-lg transition ${
-                  location.pathname === item.path
-                    ? "text-yellow-300 font-semibold"
-                    : "hover:text-yellow-300"
-                }`}
+                className={`text-lg transition ${location.pathname === item.path
+                  ? "text-yellow-300 font-semibold"
+                  : "hover:text-yellow-300"
+                  }`}
               >
                 {item.name}
               </Link>

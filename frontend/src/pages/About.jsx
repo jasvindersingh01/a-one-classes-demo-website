@@ -4,6 +4,40 @@ import StudentsImg from "../assets/about/student.png";
 import MissionImg from "../assets/about/mission.png";
 import VisionImg from "../assets/about/vision.png";
 import banner from "../assets/banner.jpg"
+import { useEffect, useRef, useState } from "react";
+import AchieveImg from "../assets/about/achieve.png";
+import { FaUserGraduate, FaAward, FaChalkboardTeacher, FaHistory } from "react-icons/fa";
+
+const Counter = ({ target }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        let start = 0;
+        const end = target;
+        const speed = 10; 
+
+        const counter = setInterval(() => {
+          start += 5;
+          if (start >= end) {
+            start = end;
+            clearInterval(counter);
+          }
+          setCount(start);
+        }, speed);
+      }
+    });
+
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return <span ref={ref}>{count}</span>;
+};
+
+
 
 export default function About() {
   return (
@@ -205,7 +239,75 @@ export default function About() {
       </p>
     </div>
   </motion.div>
+{/* Achievements Section */}
+{/* Achievements Section With Icons */}
+<section className="mt-20">
+  <div className="flex flex-col md:flex-row items-center gap-12 bg-white p-10 rounded-2xl shadow-xl">
 
+    {/* LEFT IMAGE */}
+    <motion.img
+      src={AchieveImg}
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="md:w-1/2 w-full rounded-2xl shadow-lg object-cover h-72 md:h-96"
+      alt="Achievements"
+    />
+
+    {/* RIGHT COUNTERS WITH ICONS */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="md:w-1/2 grid grid-cols-2 gap-8"
+    >
+      {/* Counter 1 */}
+      <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex justify-center mb-3">
+          <FaUserGraduate className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
+        </div>
+        <h3 className="text-4xl font-bold text-blue-700">
+          <Counter target={1500} />+
+        </h3>
+        <p className="text-gray-700 mt-1 font-medium">Happy Students</p>
+      </div>
+
+      {/* Counter 2 */}
+      <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex justify-center mb-3">
+          <FaAward className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
+        </div>
+        <h3 className="text-4xl font-bold text-blue-700">
+          <Counter target={350} />+
+        </h3>
+        <p className="text-gray-700 mt-1 font-medium">Top Selections</p>
+      </div>
+
+      {/* Counter 3 */}
+      <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex justify-center mb-3">
+          <FaHistory className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
+        </div>
+        <h3 className="text-4xl font-bold text-blue-700">
+          <Counter target={15} />+
+        </h3>
+        <p className="text-gray-700 mt-1 font-medium">Years Experience</p>
+      </div>
+
+      {/* Counter 4 */}
+      <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div className="flex justify-center mb-3">
+          <FaChalkboardTeacher className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
+        </div>
+        <h3 className="text-4xl font-bold text-blue-700">
+          <Counter target={20} />+
+        </h3>
+        <p className="text-gray-700 mt-1 font-medium">Expert Faculty</p>
+      </div>
+      
+    </motion.div>
+  </div>
+</section>n
 </div>
       </section>
     </>

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaClock } from "react-icons/fa";
+import banner from "../assets/banner.jpg";
+
 
 export default function Contact() {
 
@@ -68,118 +71,131 @@ export default function Contact() {
 
 
   return (
-    <section
-      id="contact"
-      className="py-6 px-6 md:px-20 bg-white scroll-mt-24"
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-4xl font-bold text-blue-700 text-center mb-10"
-      >
+   <section className="pb-20 bg-gray-50">
+
+  <div className="w-full h-[25vh] md:h-[40vh] relative mb-16">
+    <img src={banner} className="w-full h-full object-cover opacity-90" />
+    <div className="absolute inset-0 bg-black/40"></div>
+
+    <div className="absolute inset-0 flex items-center justify-center pt-10">
+      <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
         Contact Us
-      </motion.h2>
+      </h1>
+    </div>
+  </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto"
-      >
+  <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6 md:px-20 mb-16">
 
-        <div className="space-y-4">
-          <h3 className="text-2xl font-semibold text-gray-800">
-            A-One Classes, Kota
-          </h3>
+    <div className="bg-white p-10 rounded-2xl shadow-xl space-y-6 border-l-4 border-blue-700">
 
-          <p className="text-gray-700">
-            <strong>Address:</strong>
-            Mahaveer Nagar Vistar Yojna, LBS School ke paas, Kota (Raj.)
+      <h2 className="text-3xl font-bold text-blue-800">Get in Touch</h2>
+      <p className="text-gray-600">
+        Feel free to reach out for admission queries, study guidance or any support.
+      </p>
+
+      <div className="space-y-5 text-gray-700">
+
+        <div className="flex gap-4">
+          <FaMapMarkerAlt className="text-blue-700 text-2xl mt-1" />
+          <p>
+            <strong>Address:</strong><br />
+            Mahaveer Nagar Vistar Yojna,<br />
+            LBS School ke paas, Kota (Raj.)
           </p>
-
-          <p className="text-gray-700">
-            <strong>Mobile:</strong>
-            <a
-              href="tel:9694218177"
-              className="text-blue-600 font-semibold hover:underline"
-            >
-              {" "}
-              9694218177{" "}
-            </a>
-          </p>
-
-          <p className="text-gray-700">
-            <strong>Classes Available:</strong>
-            8th–12th CBSE/RBSE, JET, CUET, NEET, JEE
-          </p>
-
-          <p className="text-gray-700 font-semibold">
-            Hostel Facility Available
-          </p>
-
-          <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg mt-4">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.000862972934!2d75.83092297520936!3d25.135661677750686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f85b1edcc463b%3A0xe42f32bce9bf11a4!2sA-ONE%20CLASSES%20KOTA!5e0!3m2!1sen!2sin!4v1764671196865!5m2!1sen!2sin"
-              className="w-full h-full border-0"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="bg-gray-100 p-6 rounded-xl shadow space-y-4">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            className="w-full px-4 py-2 rounded-lg border focus:outline-none"
-          />
+        <div className="flex gap-4">
+          <FaPhoneAlt className="text-blue-700 text-2xl mt-1" />
+          <p>
+            <strong>Phone:</strong><br />
+            <a href="tel:9694218177" className="text-blue-600 font-semibold">
+              9694218177
+            </a>
+          </p>
+        </div>
 
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email"
-            className="w-full px-4 py-2 rounded-lg border focus:outline-none"
-          />
+        <div className="flex gap-4">
+          <FaEnvelope className="text-blue-700 text-2xl mt-1" />
+          <p>
+            <strong>Email:</strong><br />
+            contact@aoneclasses.com
+          </p>
+        </div>
 
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Your Phone Number"
-            className="w-full px-4 py-2 rounded-lg border focus:outline-none"
-          />
+        <p>
+          <strong>Courses:</strong><br />
+          8th–12th (CBSE/RBSE), JEE, NEET, CUET, JET<br />
+          <strong>Hostel Facility Available</strong>
+        </p>
+      </div>
+    </div>
 
-          <textarea
-            placeholder="Your Message"
-            rows="4"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border focus:outline-none"
-          ></textarea>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-10 rounded-2xl shadow-xl space-y-5"
+    >
+      <h3 className="text-2xl font-bold text-blue-800">Send Us a Message</h3>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className={`bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 w-full cursor-pointer ${loading ? "bg-blue-400 cursor-not-allowed" : ""
-              }`}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      </motion.div>
-    </section>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Your Name"
+        className="w-full px-4 py-3 rounded-lg border focus:outline-blue-700"
+      />
+
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Your Email"
+        className="w-full px-4 py-3 rounded-lg border focus:outline-blue-700"
+      />
+
+      <input
+        type="tel"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        placeholder="Your Phone Number"
+        className="w-full px-4 py-3 rounded-lg border focus:outline-blue-700"
+      />
+
+      <textarea
+        rows="5"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder="Your Message"
+        className="w-full px-4 py-3 rounded-lg border focus:outline-blue-700"
+      ></textarea>
+
+      <button
+        type="submit"
+        disabled={loading}
+        className={`bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold hover:bg-blue-800 transition ${
+          loading && "bg-blue-400 cursor-not-allowed"
+        }`}
+      >
+        {loading ? "Sending..." : "Send Message"}
+      </button>
+    </form>
+  </div>
+
+  {/*GOOGLE MAP */}
+  <div className="w-full h-[350px] md:h-[450px] shadow-xl">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.000862972934!2d75.83092297520936!3d25.135661677750686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f85b1edcc463b%3A0xe42f32bce9bf11a4!2sA-ONE%20CLASSES%20KOTA!5e0!3m2!1sen!2sin!4v1764671196865!5m2!1sen!2sin"
+      className="w-full h-full border-0"
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+
+</section>
+
+
   );
 }
