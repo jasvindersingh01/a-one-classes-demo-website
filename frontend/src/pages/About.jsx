@@ -48,7 +48,7 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center pt-8">
+        <div className="absolute inset-0 flex items-center justify-center pt-4">
           <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
             About Us
           </h1>
@@ -287,7 +287,7 @@ export default function About() {
       
     </motion.div>
   </div>
-</section>n
+</section>
 </div>
       </section>
     </>

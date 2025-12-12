@@ -42,7 +42,7 @@ const location = useLocation();
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all 
-         ${hideTopbar ? "top-0" : "top-[35px]"}
+         ${hideTopbar ? "top-0" : "md:top-[35px] top-0"}
         ${scrolled ? "bg-[#08377F]/95 shadow-lg backdrop-blur-md" : "bg-[#072F70]"}
       `}
     >
@@ -95,12 +95,6 @@ const location = useLocation();
                 {item.name}
               </Link>
             ))}
-
-            <Link to="/contact" onClick={() => setOpen(false)}>
-              <button className="mt-3 px-4 py-2 bg-yellow-400 text-blue-900 rounded-md w-full font-bold">
-                Enroll Now
-              </button>
-            </Link>
           </nav>
         </div>
       )}

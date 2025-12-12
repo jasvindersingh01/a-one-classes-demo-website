@@ -30,7 +30,7 @@ export default function Courses() {
         <img src={banner} alt="Banner" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center pt-10">
+        <div className="absolute inset-0 flex items-center justify-center pt-4">
           <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
             Our Courses
           </h1>

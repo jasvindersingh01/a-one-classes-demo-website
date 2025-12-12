@@ -53,7 +53,7 @@ export default function Achievements() {
       }}
     >
    
-      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
         <motion.div
@@ -63,7 +63,7 @@ export default function Achievements() {
           className="text-center mb-14"
         >
           <h2 className="text-4xl font-bold text-blue-800">Our Achievements</h2>
-          <p className="text-gray-600 mt-2">Dedicated results for over a decade</p>
+          <p className="text-black mt-2">Dedicated results for over a decade</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

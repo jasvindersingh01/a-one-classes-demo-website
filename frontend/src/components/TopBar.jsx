@@ -17,7 +17,7 @@ export default function TopBar() {
   return (
     <div
       className={`
-        w-full bg-gray-900 text-gray-200 text-white text-sm py-2 px-4 fixed left-0 z-[9999]
+        w-full bg-gray-900 hidden md:flex text-gray-200 text-white text-sm py-2 px-4 fixed left-0 z-[9999]
         transition-all duration-300
         ${hideTopbar ? "-translate-y-full" : "translate-y-0"}
       `}
