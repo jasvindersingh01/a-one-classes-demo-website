@@ -37,8 +37,6 @@ const Counter = ({ target }) => {
   return <span ref={ref}>{count}</span>;
 };
 
-
-
 export default function About() {
   return (
     <>
@@ -50,7 +48,7 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center pt-16">
+        <div className="absolute inset-0 flex items-center justify-center pt-8">
           <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
             About Us
           </h1>
@@ -58,7 +56,6 @@ export default function About() {
       </div>
       <section className="py-20 bg-gray-50 min-h-screen px-6 md:px-20">
 
-        {/* Page Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +70,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* Director Message Section */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-20">
-
-          {/* Director Image */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -94,7 +88,6 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Message Text */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -126,10 +119,8 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Students Inspiration Section */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
 
-          {/* Text Block */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -157,7 +148,6 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Students Image */}
           <motion.img
             src={StudentsImg}
             alt="Students"
@@ -168,10 +158,9 @@ export default function About() {
           />
         </div>
 
-       {/* Mission & Vision Section Premium Blocks */}
 <div className="space-y-20 mt-20">
 
-  {/* ⭐ Mission Block — Image Left | Text Right */}
+  {/* Mission */}
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -179,7 +168,6 @@ export default function About() {
     viewport={{ once: true }}
     className="flex flex-col md:flex-row items-center gap-12"
   >
-    {/* Mission Image Left */}
     <motion.img
       src={MissionImg}
       initial={{ opacity: 0, scale: 0.9 }}
@@ -190,7 +178,6 @@ export default function About() {
       alt="Mission"
     />
 
-    {/* Mission Text Right */}
     <div className="md:w-1/2 bg-white rounded-2xl shadow-lg p-10 border-l-4 border-blue-600">
       <h3 className="text-3xl font-bold text-blue-700 mb-4">
         Our Mission
@@ -206,7 +193,7 @@ export default function About() {
   </motion.div>
 
 
-  {/* ⭐ Vision Block — Image Right | Text Left */}
+  {/*Vision */}
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +201,6 @@ export default function About() {
     viewport={{ once: true }}
     className="flex flex-col md:flex-row-reverse items-center gap-12"
   >
-    {/* Vision Image Right */}
     <motion.img
       src={VisionImg}
       initial={{ opacity: 0, scale: 0.9 }}
@@ -225,7 +211,6 @@ export default function About() {
       alt="Vision"
     />
 
-    {/* Vision Text Left */}
     <div className="md:w-1/2 bg-white rounded-2xl shadow-lg p-10 border-l-4 border-blue-600">
       <h3 className="text-3xl font-bold text-blue-700 mb-4">
         Our Vision
@@ -239,12 +224,11 @@ export default function About() {
       </p>
     </div>
   </motion.div>
+
 {/* Achievements Section */}
-{/* Achievements Section With Icons */}
 <section className="mt-20">
   <div className="flex flex-col md:flex-row items-center gap-12 bg-white p-10 rounded-2xl shadow-xl">
 
-    {/* LEFT IMAGE */}
     <motion.img
       src={AchieveImg}
       initial={{ opacity: 0, x: -40 }}
@@ -254,14 +238,13 @@ export default function About() {
       alt="Achievements"
     />
 
-    {/* RIGHT COUNTERS WITH ICONS */}
+    {/*COUNTERS */}
     <motion.div
       initial={{ opacity: 0, x: 40 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
       className="md:w-1/2 grid grid-cols-2 gap-8"
     >
-      {/* Counter 1 */}
       <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
         <div className="flex justify-center mb-3">
           <FaUserGraduate className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
@@ -272,7 +255,6 @@ export default function About() {
         <p className="text-gray-700 mt-1 font-medium">Happy Students</p>
       </div>
 
-      {/* Counter 2 */}
       <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
         <div className="flex justify-center mb-3">
           <FaAward className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
@@ -283,7 +265,6 @@ export default function About() {
         <p className="text-gray-700 mt-1 font-medium">Top Selections</p>
       </div>
 
-      {/* Counter 3 */}
       <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
         <div className="flex justify-center mb-3">
           <FaHistory className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
@@ -294,7 +275,6 @@ export default function About() {
         <p className="text-gray-700 mt-1 font-medium">Years Experience</p>
       </div>
 
-      {/* Counter 4 */}
       <div className="text-center bg-blue-50 p-6 rounded-xl shadow hover:shadow-lg transition">
         <div className="flex justify-center mb-3">
           <FaChalkboardTeacher className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />

@@ -17,7 +17,7 @@ export default function TopBar() {
   return (
     <div
       className={`
-        w-full bg-[#072F70] text-white text-sm py-2 px-4 fixed left-0 z-[9999]
+        w-full bg-gray-900 text-gray-200 text-white text-sm py-2 px-4 fixed left-0 z-[9999]
         transition-all duration-300
         ${hideTopbar ? "-translate-y-full" : "translate-y-0"}
       `}
@@ -47,7 +47,7 @@ export default function TopBar() {
         <div className="flex items-center gap-4 text-lg">
 
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/aone.classes?utm_source=qr&igsh=MW1jYXNlYjJla2VmbA==" 
             target="_blank" 
             className="hover:text-yellow-300 transition"
           >
@@ -55,7 +55,7 @@ export default function TopBar() {
           </a>
 
           <a 
-            href="https://facebook.com" 
+            href="https://www.facebook.com/share/1MLH1P9pmk/  " 
             target="_blank" 
             className="hover:text-yellow-300 transition"
           >
@@ -63,7 +63,7 @@ export default function TopBar() {
           </a>
 
           <a 
-            href="https://youtube.com" 
+            href="https://www.youtube.com/@a-oneclasseskota" 
             target="_blank" 
             className="hover:text-yellow-300 transition"
           >

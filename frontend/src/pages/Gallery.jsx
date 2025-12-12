@@ -8,6 +8,8 @@ import img3 from "../assets/gallery/Image3.avif";
 import img4 from "../assets/gallery/Image4.webp";
 import img5 from "../assets/gallery/Image5.avif";
 import img6 from "../assets/gallery/Image6.avif";
+import img7 from "../assets/gallery/Image7.avif";
+import img8 from "../assets/gallery/Image8.avif";
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
@@ -15,10 +17,12 @@ export default function Gallery() {
   const images = [
     { src: img1, category: "Classroom" },
     { src: img2, category: "Events" },
-    { src: img3, category: "Results" },
-    { src: img4, category: "Classroom" },
-    { src: img5, category: "Events" },
+    { src: img3, category: "Events" },
+    { src: img4, category: "Events" },
+    { src: img5, category: "Results" },
     { src: img6, category: "Results" },
+    { src: img7, category: "Results" },
+    { src: img8, category: "Results" },
   ];
 
   const filterImages =
@@ -28,12 +32,11 @@ export default function Gallery() {
 
   return (
     <>
-      {/* TOP BANNER */}
       <div className="w-full h-[28vh] md:h-[40vh] relative">
         <img src={banner} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center pt-18">
+        <div className="absolute inset-0 flex items-center justify-center pt-8">
           <h1 className="text-white text-4xl md:text-5xl font-bold drop-shadow-lg">
             Our Gallery
           </h1>

@@ -10,7 +10,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="bg-blue-900 text-white pt-12 pb-6 mt-20"
+      className="bg-[#072F70] text-white pt-12 pb-6 mt-20"
     >
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
 

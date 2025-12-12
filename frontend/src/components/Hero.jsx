@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[100vh] w-full flex items-center"
+      className="relative h-[90vh] w-full flex items-center"
     >
       <div
         className="absolute inset-0 bg-cover bg-center brightness-[0.45]"

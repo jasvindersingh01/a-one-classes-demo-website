@@ -46,7 +46,7 @@ const location = useLocation();
         ${scrolled ? "bg-[#08377F]/95 shadow-lg backdrop-blur-md" : "bg-[#072F70]"}
       `}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-6">
+      <div className="mx-auto px-6 flex justify-between items-center py-6">
 
         <div className="flex items-center gap-3">
           <img

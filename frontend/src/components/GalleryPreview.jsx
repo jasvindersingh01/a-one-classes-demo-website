@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import img1 from "../assets/gallery/Image1.avif";
 import img2 from "../assets/gallery/Image2.webp";
@@ -7,46 +8,51 @@ import img4 from "../assets/gallery/Image4.webp";
 import img5 from "../assets/gallery/Image5.avif";
 import img6 from "../assets/gallery/Image6.avif";
 
-export default function Gallery() {
-  const images = [img1, img2, img3, img4, img5, img6];
+const images = [img1, img2, img3, img4, img5, img6];
 
+export default function GalleryPreview() {
   return (
-    <section id="gallery" className="py-16 bg-white scroll-mt-20">
-      
-      {/* Heading Animation */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
+    <section className="py-10 bg-gray-50 px-6 md:px-20">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
+        transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-10"
       >
-        <h2 className="text-4xl font-bold text-blue-700">Gallery</h2>
-        <p className="text-gray-600 mt-2">
-          A glimpse of A-One Classes campus, classrooms & learning environment
-        </p>
-      </motion.div>
+        Gallery Highlights
+      </motion.h2>
 
-      {/* Images Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-6 md:px-20">
-        {images.map((src, index) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
+        {images.map((img, i) => (
           <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
+            key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all"
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-xl shadow-md bg-white"
           >
-            <img
-              src={src}
+            <motion.img
+              src={img}
               alt="Gallery"
-              className="w-full h-64 object-cover hover:scale-110 transition duration-500"
+              className="w-full h-40 md:h-65 object-cover rounded-xl"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.4 }}
             />
           </motion.div>
         ))}
       </div>
 
+      <div className="text-center mt-10">
+        <Link to="/gallery">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-blue-700 text-white rounded-lg shadow-md font-semibold hover:bg-blue-800 transition"
+          >
+            View Full Gallery →
+          </motion.button>
+        </Link>
+      </div>
     </section>
   );
 }
