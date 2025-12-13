@@ -20,7 +20,7 @@ function App() {
       <div className="mt-10">
   <Navbar />
 </div>
-
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />

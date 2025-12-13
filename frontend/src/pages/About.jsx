@@ -11,30 +11,41 @@ import { FaUserGraduate, FaAward, FaChalkboardTeacher, FaHistory } from "react-i
 const Counter = ({ target }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
+  const hasStarted = useRef(false); 
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        let start = 0;
-        const end = target;
-        const speed = 10; 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted.current) {
+          hasStarted.current = true;
 
-        const counter = setInterval(() => {
-          start += 5;
-          if (start >= end) {
-            start = end;
-            clearInterval(counter);
-          }
-          setCount(start);
-        }, speed);
-      }
-    });
+          let start = 0;
+          const end = target;
+          const duration = 1500;
+          const increment = Math.ceil(end / (duration / 16));
 
-    observer.observe(ref.current);
+          const counter = setInterval(() => {
+            start += increment;
+            if (start >= end) {
+              setCount(end);
+              clearInterval(counter);
+            } else {
+              setCount(start);
+            }
+          }, 16);
+
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
     return () => observer.disconnect();
   }, [target]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span ref={ref}>{count}+</span>;
 };
 
 export default function About() {
@@ -238,7 +249,6 @@ export default function About() {
       alt="Achievements"
     />
 
-    {/*COUNTERS */}
     <motion.div
       initial={{ opacity: 0, x: 40 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -250,7 +260,7 @@ export default function About() {
           <FaUserGraduate className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
         </div>
         <h3 className="text-4xl font-bold text-blue-700">
-          <Counter target={1500} />+
+          <Counter target={1500} />
         </h3>
         <p className="text-gray-700 mt-1 font-medium">Happy Students</p>
       </div>
@@ -260,7 +270,7 @@ export default function About() {
           <FaAward className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
         </div>
         <h3 className="text-4xl font-bold text-blue-700">
-          <Counter target={350} />+
+          <Counter target={350} />
         </h3>
         <p className="text-gray-700 mt-1 font-medium">Top Selections</p>
       </div>
@@ -270,7 +280,7 @@ export default function About() {
           <FaHistory className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
         </div>
         <h3 className="text-4xl font-bold text-blue-700">
-          <Counter target={15} />+
+          <Counter target={15} />
         </h3>
         <p className="text-gray-700 mt-1 font-medium">Years Experience</p>
       </div>
@@ -280,7 +290,7 @@ export default function About() {
           <FaChalkboardTeacher className="text-blue-700 text-4xl p-2 bg-white rounded-full shadow-md" />
         </div>
         <h3 className="text-4xl font-bold text-blue-700">
-          <Counter target={20} />+
+          <Counter target={20} />
         </h3>
         <p className="text-gray-700 mt-1 font-medium">Expert Faculty</p>
       </div>
