@@ -59,42 +59,77 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Courses</h3>
-          <ul className="space-y-2 text-gray-300">
+       <div>
+  <h3 className="text-lg font-semibold mb-4">Courses</h3>
 
-            <li>
-              <Link to="/courses" className="hover:text-yellow-400 transition">
-                Class 8th–12th
-              </Link>
-            </li>
+  <ul className="space-y-2 text-gray-300">
 
-            <li>
-              <Link to="/courses" className="hover:text-yellow-400 transition">
-                JEE (Mains)
-              </Link>
-            </li>
+    <li>
+      <Link
+        to="/courses/foundation"
+        className="hover:text-yellow-400 transition"
+      >
+        Class 8–10 Foundation
+      </Link>
+    </li>
 
-            <li>
-              <Link to="/courses" className="hover:text-yellow-400 transition">
-                NEET
-              </Link>
-            </li>
+    <li>
+      <Link
+        to="/courses/pcm-pcb"
+        className="hover:text-yellow-400 transition"
+      >
+        Class 11–12 PCM / PCB
+      </Link>
+    </li>
 
-            <li>
-              <Link to="/courses" className="hover:text-yellow-400 transition">
-                CUET
-              </Link>
-            </li>
+    <li>
+      <Link
+        to="/courses/jee"
+        className="hover:text-yellow-400 transition"
+      >
+        JEE (Main & Advanced)
+      </Link>
+    </li>
 
-            <li>
-              <Link to="/courses" className="hover:text-yellow-400 transition">
-                JET / B.Sc Entrance
-              </Link>
-            </li>
+    <li>
+      <Link
+        to="/courses/neet"
+        className="hover:text-yellow-400 transition"
+      >
+        NEET (UG)
+      </Link>
+    </li>
 
-          </ul>
-        </div>
+    <li>
+      <Link
+        to="/courses/cuet"
+        className="hover:text-yellow-400 transition"
+      >
+        CUET
+      </Link>
+    </li>
+
+    <li>
+      <Link
+        to="/courses/jet-icar"
+        className="hover:text-yellow-400 transition"
+      >
+        JET / ICAR
+      </Link>
+    </li>
+
+    <li>
+      <Link
+        to="/courses/bsc"
+        className="hover:text-yellow-400 transition"
+      >
+        B.Sc (PCM / CBZ)
+      </Link>
+    </li>
+
+  </ul>
+</div>
+
 
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Info</h3>

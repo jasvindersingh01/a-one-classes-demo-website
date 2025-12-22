@@ -72,17 +72,23 @@ export default function Gallery() {
       </div>
 
       {/* CATEGORY FILTER */}
+
       <section className="px-6 md:px-20 py-10 text-center">
+        <div className="text-center mb-10">
+          <p className="text-gray-600 text-lg">
+            A glimpse of our classrooms, students, and learning environment at A-One Classes.
+          </p>
+        </div>
+
         <div className="flex flex-wrap justify-center gap-4">
           {categories.map((cat, index) => (
             <button
               key={index}
               onClick={() => setActive(cat)}
               className={`px-5 py-2 rounded-full font-medium transition 
-                ${
-                  active === cat
-                    ? "bg-blue-800 text-white"
-                    : "bg-gray-200 hover:bg-gray-300"
+                ${active === cat
+                  ? "bg-blue-800 text-white"
+                  : "bg-gray-200 hover:bg-gray-300"
                 }
               `}
             >

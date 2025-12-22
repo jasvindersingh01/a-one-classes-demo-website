@@ -1,71 +1,96 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MdSchool, MdScience, MdBiotech, MdAutoGraph } from "react-icons/md";
 
 export default function CoursesPreview() {
   const courses = [
     {
-      title: "Class 8th – 12th (CBSE/RBSE)",
-      desc: "Strong foundation classes with weekly tests & doubt sessions.",
-      icon: <MdSchool className="text-blue-700 text-5xl" />,
+      title: "Class 8–10 Foundation",
+      desc: "Strong academic base with early competitive exam orientation.",
+      link: "/courses/foundation",
     },
     {
-      title: "JEE (Mains)",
-      desc: "Concept building, topic-wise test practice & expert faculty guidance.",
-      icon: <MdScience className="text-blue-700 text-5xl" />,
+      title: "Class 11–12 PCM / PCB",
+      desc: "Board-focused preparation with parallel competitive guidance.",
+      link: "/courses/pcm-pcb",
     },
     {
-      title: "NEET",
-      desc: "Biology-focused coaching with full syllabus coverage.",
-      icon: <MdBiotech className="text-blue-700 text-5xl" />,
+      title: "JEE (Main & Advanced)",
+      desc: "Concept-driven coaching for engineering aspirants.",
+      link: "/courses/jee",
     },
     {
-      title: "JET / B.Sc. Entrance",
-      desc: "Structured coaching & dedicated study material.",
-      icon: <MdAutoGraph className="text-blue-700 text-5xl" />,
+      title: "NEET (UG)",
+      desc: "NCERT-focused preparation for medical entrance exams.",
+      link: "/courses/neet",
+    },
+    {
+      title: "CUET",
+      desc: "Smart and exam-oriented preparation for university admissions.",
+      link: "/courses/cuet",
+    },
+    {
+      title: "JET / ICAR & B.Sc",
+      desc: "Focused coaching for agriculture & science-based careers.",
+      link: "/courses/jet-icar",
     },
   ];
 
   return (
-    <section className="py-16 bg-gray-50 px-6 md:px-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-800">
-          Courses We Offer
-        </h2>
-        <p className="text-gray-600 mt-2">
-          Choose the best program for your academic journey.
-        </p>
-      </div>
+    <section className="bg-gray-50 py-20 px-6 md:px-20">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {courses.slice(0, 4).map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-blue-700"
-          >
-            <div className="flex justify-center mb-4">{item.icon}</div>
-
-            <h3 className="text-xl font-semibold text-gray-800 text-center mb-2">
-              {item.title}
-            </h3>
-
-            <p className="text-gray-600 text-center text-sm leading-relaxed">
-              {item.desc}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="text-center mt-12">
-        <Link
-          to="/courses"
-          className="px-8 py-3 bg-blue-800 text-white rounded-md font-semibold hover:bg-blue-900 transition duration-300 shadow-md"
+        {/* HEADING */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          View All Courses
-        </Link>
+          <h2 className="text-4xl font-bold text-blue-700">
+            Our Courses
+          </h2>
+          <p className="text-gray-600 mt-3 text-lg">
+            Designed to build strong fundamentals and exam confidence
+          </p>
+        </motion.div>
+
+        {/* COURSES GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {courses.map((course, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition"
+            >
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                {course.title}
+              </h3>
+
+              <p className="text-gray-700 text-[16px] leading-relaxed mb-5">
+                {course.desc}
+              </p>
+
+              <Link
+                to={course.link}
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Know More →
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* VIEW ALL BUTTON */}
+        <div className="text-center mt-14">
+          <Link
+            to="/courses"
+            className="inline-block px-8 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-600 transition"
+          >
+            View All Courses
+          </Link>
+        </div>
       </div>
     </section>
   );
