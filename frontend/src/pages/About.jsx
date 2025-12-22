@@ -51,7 +51,7 @@ const Counter = ({ target }) => {
 export default function About() {
   return (
     <>
-      <div className="w-full h-[25vh] md:h-[40vh] relative">
+      <div className="w-full h-[25vh] md:h-[37vh] relative">
         <img
           src={banner}
           alt="Banner"

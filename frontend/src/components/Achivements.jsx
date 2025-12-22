@@ -21,7 +21,7 @@ export default function Achievements() {
       ([entry]) => {
         if (entry.isIntersecting) setStartCount(true);
       },
-      { threshold: 1 }  
+      { threshold: 0.25 }  
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);

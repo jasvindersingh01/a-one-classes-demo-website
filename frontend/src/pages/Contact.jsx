@@ -73,7 +73,7 @@ export default function Contact() {
   return (
    <section className="pb-20 bg-gray-50">
 
-  <div className="w-full h-[25vh] md:h-[40vh] relative mb-16">
+  <div className="w-full h-[25vh] md:h-[37vh] relative mb-16">
     <img src={banner} className="w-full h-full object-cover opacity-90" />
     <div className="absolute inset-0 bg-black/40"></div>
 

@@ -43,16 +43,18 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-gray-300">
             <li>
-              <Link to="/" className="hover:text-yellow-400 transition">Home</Link>
+              <Link to="/" className="hover:text-yellow-400 transition">
+                <span className="mx-1">{">"}</span>Home
+              </Link>
             </li>
             <li>
-              <Link to="/about" className="hover:text-yellow-400 transition">About Us</Link>
+              <Link to="/about" className="hover:text-yellow-400 transition"><span className="mx-1">{">"}</span>About Us</Link>
             </li>
             <li>
-              <Link to="/gallery" className="hover:text-yellow-400 transition">Gallery</Link>
+              <Link to="/gallery" className="hover:text-yellow-400 transition"><span className="mx-1">{">"}</span>Gallery</Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-yellow-400 transition">Contact</Link>
+              <Link to="/contact" className="hover:text-yellow-400 transition"><span className="mx-1">{">"}</span>Contact</Link>
             </li>
           </ul>
         </div>
@@ -121,7 +123,20 @@ export default function Footer() {
 
       <div className="text-center text-gray-300 text-sm mt-10 border-t border-white/20 pt-4">
         © {new Date().getFullYear()} A-One Classes Kota. All Rights Reserved.
+        <span className="mx-2 hidden sm:inline">|</span>
+        <span className="block sm:inline mt-1 sm:mt-0">
+          Designed & Developed by{" "}
+          <a
+            href="https://rightadsdigital.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-400 hover:text-yellow-300 font-semibold transition"
+          >
+            Right Ads
+          </a>
+        </span>
       </div>
+
     </motion.footer>
   );
 }

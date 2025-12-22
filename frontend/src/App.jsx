@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
-       <div className="pt-[45px]">
+       <div className="pt-[35px]">
       <TopBar />
       </div>
       <div className="mt-10">
