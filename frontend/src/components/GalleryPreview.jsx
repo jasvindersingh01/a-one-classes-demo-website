@@ -5,10 +5,10 @@ import img1 from "../assets/gallery/Image1.avif";
 import img2 from "../assets/gallery/Image2.webp";
 import img3 from "../assets/gallery/Image3.avif";
 import img4 from "../assets/gallery/Image4.webp";
-import img5 from "../assets/gallery/Image5.avif";
-import img6 from "../assets/gallery/Image6.avif";
+import img10 from "../assets/gallery/img10.avif";
+import img15 from "../assets/gallery/img15.png";
 
-const images = [img1, img2, img3, img4, img5, img6];
+const images = [img1, img2, img3, img4, img10, img15];
 
 export default function GalleryPreview() {
   return (

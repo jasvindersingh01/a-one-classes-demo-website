@@ -7,15 +7,11 @@ import img2 from "../assets/gallery/Image2.webp";
 import img3 from "../assets/gallery/Image3.avif";
 import img4 from "../assets/gallery/Image4.webp";
 import img5 from "../assets/gallery/Image5.avif";
-import img6 from "../assets/gallery/Image6.avif";
-import img7 from "../assets/gallery/Image7.avif";
-import img8 from "../assets/gallery/Image8.avif";
 import img9 from "../assets/gallery/img9.avif";
 import img10 from "../assets/gallery/img10.avif";
 import img11 from "../assets/gallery/img11.avif";
 import img12 from "../assets/gallery/img12.avif";
 import img13 from "../assets/gallery/img13.avif";
-import img14 from "../assets/gallery/img14.webp";
 import img15 from "../assets/gallery/img15.png";
 import img16 from "../assets/gallery/img16.png";
 import img18 from "../assets/gallery/img18.png";
@@ -24,6 +20,18 @@ import img20 from "../assets/gallery/img20.png";
 import img21 from "../assets/gallery/img21.png";
 import img22 from "../assets/gallery/img22.png";
 import img23 from "../assets/gallery/img23.png";
+import r1 from "../assets/gallery/r1.jpeg";
+import r2 from "../assets/gallery/r2.jpeg";
+import r3 from "../assets/gallery/r3.jpeg";
+import r4 from "../assets/gallery/r4.jpeg";
+import r5 from "../assets/gallery/r5.jpeg";
+import r6 from "../assets/gallery/r6.jpeg";
+import r7 from "../assets/gallery/r7.jpeg";
+import r8 from "../assets/gallery/r8.jpeg";
+import r9 from "../assets/gallery/r9.jpeg";
+import r10 from "../assets/gallery/r10.jpeg";
+import r11 from "../assets/gallery/r11.jpeg";
+import r12 from "../assets/gallery/r12.jpeg";
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
@@ -33,16 +41,10 @@ export default function Gallery() {
     { src: img2, category: "Events" },
     { src: img3, category: "Achivments" },
     { src: img4, category: "Achivments" },
-    { src: img5, category: "Results" },
-    { src: img6, category: "Results" },
-    { src: img7, category: "Results" },
-    { src: img8, category: "Results" },
     { src: img9, category: "Achivments" },
     { src: img10, category: "Achivments" },
     { src: img11, category: "Achivments" },
     { src: img12, category: "Achivments" },
-    { src: img13, category: "Results" },
-    { src: img14, category: "Results" },
     { src: img15, category: "Achivments" },
     { src: img16, category: "Achivments" },
     { src: img18, category: "Achivments" },
@@ -51,6 +53,20 @@ export default function Gallery() {
     { src: img21, category: "Events" },
     { src: img22, category: "Events" },
     { src: img23, category: "Events" },
+    { src: r1, category: "Results" },
+    { src: r2, category: "Results" },
+    { src: r3, category: "Results" },
+    { src: r4, category: "Results" },
+    { src: r5, category: "Results" },
+    { src: r6, category: "Results" },
+    { src: r7, category: "Results" },
+    { src: r8, category: "Results" },
+    { src: r9, category: "Results" },
+    { src: r10, category: "Results" },
+    { src: r11, category: "Results" },
+    { src: r12, category: "Results" },
+    { src: img5, category: "Results" },
+     { src: img13, category: "Results" },
   ];
 
   const filterImages =
@@ -111,7 +127,7 @@ export default function Gallery() {
             >
               <img
                 src={img.src}
-                className="w-full mb-4 rounded-2xl group-hover:scale-105 transition duration-300"
+                className="w-full object-contain mb-4 rounded-2xl group-hover:scale-105 transition duration-300"
               />
             </motion.div>
           ))}
