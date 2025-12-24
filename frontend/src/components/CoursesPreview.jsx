@@ -83,14 +83,10 @@ export default function CoursesPreview() {
         </div>
 
         {/* VIEW ALL BUTTON */}
-        <div className="text-center mt-14">
-          <Link
-            to="/courses"
-            className="inline-block px-8 py-3 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-600 transition"
-          >
-            View All Courses
-          </Link>
-        </div>
+     <div className="text-center mt-10 text-gray-600 text-sm">
+  Click on <span className="font-semibold text-blue-700">Know More</span> to explore detailed course information.
+</div>
+
       </div>
     </section>
   );

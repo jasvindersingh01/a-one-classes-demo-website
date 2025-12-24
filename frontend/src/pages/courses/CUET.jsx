@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import cuetImg from "../../assets/courses/course.webp";
+import cuetImg from "../../assets/course.webp";
 import banner from "../../assets/banner.jpg";
 
 export default function CUET() {

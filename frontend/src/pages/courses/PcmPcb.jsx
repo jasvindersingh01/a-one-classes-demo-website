@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import pcmPcbImg from "../../assets/courses/course.webp";
+import pcmPcbImg from "../../assets/course.webp";
 import banner from "../../assets/banner.jpg";
 
 export default function PcmPcb() {

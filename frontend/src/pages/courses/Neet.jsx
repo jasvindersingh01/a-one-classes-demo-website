@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import neetImg from "../../assets/courses/course.webp";
+import neetImg from "../../assets/course.webp";
 import banner from "../../assets/banner.jpg";
 
 export default function NEET() {

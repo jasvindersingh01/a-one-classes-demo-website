@@ -36,13 +36,6 @@ export default function TopBar() {
           </p>
 
           <p className="flex items-center gap-2 whitespace-nowrap">
-            📞
-            <a href="tel:9694218177" className="hover:underline">
-              +91 9694218177
-            </a>
-          </p>
-
-          <p className="flex items-center gap-2 whitespace-nowrap">
             ✉️
             <a href="mailto:contact@aoneclasses.com" className="hover:underline">
               contact@aoneclasses.com
@@ -53,6 +46,12 @@ export default function TopBar() {
 
         {/* RIGHT SOCIAL ICONS */}
         <div className="flex items-center gap-4 text-lg">
+           <p className="flex items-center gap-2 whitespace-nowrap text-sm">
+            📞
+            <a href="tel:9694218177" className="hover:underline">
+              +91 9694218177
+            </a>
+          </p>
           <a
             href="https://www.instagram.com/aone.classes?utm_source=qr&igsh=MW1jYXNlYjJla2VmbA=="
             target="_blank"

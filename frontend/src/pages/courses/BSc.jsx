@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import bscImg from "../../assets/courses/course.webp";
+import bscImg from "../../assets/course.webp";
 import banner from "../../assets/banner.jpg";
 
 export default function BSc() {

@@ -2,9 +2,11 @@
 
 html { scroll-behavior: smooth; }
 
-
 .logo {
   height: 50px;
   border-radius: 6%;
   object-fit: contain;
+}
+body {
+  font-family: "Poppins", sans-serif;
 }

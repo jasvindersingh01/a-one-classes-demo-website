@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import jeeImg from "../../assets/courses/course.webp";
+import jeeImg from "../../assets/course.webp";
 import banner from "../../assets/banner.jpg";
 
 export default function Jee() {
