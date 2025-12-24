@@ -95,7 +95,7 @@ export default function Navbar() {
                       : "hover:text-yellow-300"
                       }`}
                   >
-                    Courses <FaChevronDown className="text-xs mt-[2px]" />
+                    Courses <FaChevronDown className="text-xs mt-[2px] transition-transform duration-300ppp group-hover:rotate-180" />
                   </button>
 
                   {/* Dropdown */}
