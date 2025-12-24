@@ -78,9 +78,6 @@ export default function Navbar() {
             alt="A-One Classes"
             className="w-22 object-contain rounded-sm"
           />
-          <h1 className="text-xl font-bold text-white tracking-wide">
-            A-One Classes
-          </h1>
         </div>
 
         <nav className="hidden md:flex gap-8 items-center text-white font-medium">
