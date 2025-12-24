@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import Logo from "../assets/Logo.jpg";
 import { motion } from "framer-motion";
@@ -8,13 +8,14 @@ import { FaChevronDown } from "react-icons/fa";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const manuRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [hideTopbar, setHideTopbar] = useState(false);
   const location = useLocation();
 
   const [openCourses, setOpenCourses] = useState(false);
 
-   const links = [
+  const links = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Courses", path: "/courses" },
@@ -50,6 +51,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (manuRef.current && !manuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+  });
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -81,8 +91,8 @@ export default function Navbar() {
                 <div key={index} className="relative group">
                   <button
                     className={`flex items-center gap-1 transition-all duration-200 ${location.pathname.startsWith("/courses")
-                        ? "text-yellow-300 font-semibold"
-                        : "hover:text-yellow-300"
+                      ? "text-yellow-300 font-semibold"
+                      : "hover:text-yellow-300"
                       }`}
                   >
                     Courses <FaChevronDown className="text-xs mt-[2px]" />
@@ -120,8 +130,8 @@ export default function Navbar() {
                 key={index}
                 to={item.path}
                 className={`transition-all duration-200 ${location.pathname === item.path
-                    ? "text-yellow-300 font-semibold"
-                    : "hover:text-yellow-300"
+                  ? "text-yellow-300 font-semibold"
+                  : "hover:text-yellow-300"
                   }`}
               >
                 {item.name}
@@ -137,7 +147,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#0A3D91] text-white shadow-lg">
+        <div ref={manuRef} className="md:hidden bg-[#0A3D91] text-white shadow-lg">
           <nav className="flex flex-col gap-4 px-6 py-4">
             {links.map((item, index) => {
               // COURSES DROPDOWN
@@ -191,8 +201,8 @@ export default function Navbar() {
                   to={item.path}
                   onClick={() => setOpen(false)}
                   className={`text-lg transition ${location.pathname === item.path
-                      ? "text-yellow-300 font-semibold"
-                      : "hover:text-yellow-300"
+                    ? "text-yellow-300 font-semibold"
+                    : "hover:text-yellow-300"
                     }`}
                 >
                   {item.name}
