@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import banner from "../assets/banner.jpg";
+import { FaEye, FaTimes } from "react-icons/fa";
 
 import img1 from "../assets/gallery/Image1.avif";
 import img2 from "../assets/gallery/Image2.webp";
@@ -34,7 +35,9 @@ import r11 from "../assets/gallery/r11.jpeg";
 import r12 from "../assets/gallery/r12.jpeg";
 
 export default function Gallery() {
+
   const [active, setActive] = useState("All");
+  const [previewImg, setPreviewImg] = useState(null);
 
   const images = [
     { src: img1, category: "All" },
@@ -66,7 +69,7 @@ export default function Gallery() {
     { src: r11, category: "Results" },
     { src: r12, category: "Results" },
     { src: img5, category: "Results" },
-     { src: img13, category: "Results" },
+    { src: img13, category: "Results" },
   ];
 
   const filterImages =
@@ -123,16 +126,61 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
+              viewport={{ once: true }}
+              onClick={() => setPreviewImg(img.src)}
+              className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
             >
+              {/* Image */}
               <img
                 src={img.src}
-                className="w-full object-contain mb-4 rounded-2xl group-hover:scale-105 transition duration-300"
+                alt=""
+                className="w-full h-full object-cover rounded-2xl 
+               transition-transform duration-300 group-hover:scale-105"
               />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 
+                  flex items-center justify-center 
+                  opacity-0 group-hover:opacity-100 
+                  transition duration-300">
+                <FaEye
+                  onClick={() => setPreviewImg(img.src)}
+                  className="text-white text-4xl cursor-pointer
+             scale-90 group-hover:scale-110 transition"
+                />
+              </div>
             </motion.div>
+
           ))}
         </div>
       </section>
+      {previewImg && (
+        <div
+          className="fixed inset-0 bg-black/80 z-[999]
+               flex items-center justify-center px-4"
+          onClick={() => setPreviewImg(null)}
+        >
+          <div
+            className="relative max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* CLOSE ICON */}
+            <button
+              onClick={() => setPreviewImg(null)}
+              className="absolute -top-10 right-0 text-white text-2xl hover:scale-110 transition"
+            >
+              <FaTimes />
+            </button>
+
+            {/* PREVIEW IMAGE */}
+            <img
+              src={previewImg}
+              alt="Project Preview"
+              className="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
