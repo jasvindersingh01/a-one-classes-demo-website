@@ -10,6 +10,7 @@ export default function Hero() {
     >
       <div
         className="absolute inset-0 bg-cover bg-center brightness-[0.45]"
+        fetchpriority="high"
         style={{ backgroundImage: `url(${HeroImg})` }}
       />
 
