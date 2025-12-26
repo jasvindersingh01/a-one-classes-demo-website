@@ -10,10 +10,9 @@ const sendNotificationEmail = async (name, phone, email, message) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
-      connectionTimeout: 10000,
+      connectionTimeout: 30000,
+      greetingTimeout: 30000,
+      socketTimeout: 30000,
     });
 
     const mailOptions = {
