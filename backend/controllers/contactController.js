@@ -1,4 +1,4 @@
-const Contact = require("../models/contact");
+const Contact = require ("../models/contact");
 const sendNotificationEmail = require("../utils/mailer");
 
 exports.submitForm = async (req, res) => {
