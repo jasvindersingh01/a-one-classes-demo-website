@@ -10,9 +10,10 @@ const sendNotificationEmail = async (name, phone, email, message) => {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      connectionTimeout: 30000,
-      greetingTimeout: 30000,
-      socketTimeout: 30000,
+      tls: {
+        rejectUnauthorized: false,
+      },
+      connectionTimeout: 10000, // 10 sec
     });
 
     const mailOptions = {
@@ -32,7 +33,7 @@ const sendNotificationEmail = async (name, phone, email, message) => {
     console.log("Email Sent ✔");
   } catch (err) {
     console.error("Email Error:", err);
-    throw err;
+    throw err; // important for controller response
   }
 };
 
